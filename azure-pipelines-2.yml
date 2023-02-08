@@ -24,7 +24,7 @@ steps:
   inputs:
     SonarQube: 'sonarqube'
     scannerMode: 'MSBuild'
-    projectKey: 'tdpipeline'
+    projectKey: 'tdsonarqube'
     projectName: 'tdsonarqube'
 - task: DotNetCoreCLI@2
   inputs:
