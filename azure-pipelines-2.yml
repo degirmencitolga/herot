@@ -26,6 +26,7 @@ steps:
     scannerMode: 'MSBuild'
     projectKey: 'tdsonarqube'
     projectName: 'tdsonarqube'
+
 - task: DotNetCoreCLI@2
   inputs:
     command: 'publish'
