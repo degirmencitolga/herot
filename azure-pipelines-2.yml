@@ -43,7 +43,7 @@ steps:
   inputs:
     targetType: 'inline'
     script: |
-      $token = [System.Text.Encoding]::UTF8.GetBytes($env:"3d87ebbd4c32f25abd37a1b32f63929b800e8a8e" + ":")
+      $token = [System.Text.Encoding]::UTF8.GetBytes("3d87ebbd4c32f25abd37a1b32f63929b800e8a8e" + ":")
       $base64 = [System.Convert]::ToBase64String($token)
        
       $basicAuth = [string]::Format("Basic {0}", $base64)
