@@ -38,6 +38,25 @@ steps:
 - task: SonarQubePublish@5
   inputs:
     pollingTimeoutSec: '300'
+
+- task: PowerShell@2
+  inputs:
+    targetType: 'inline'
+    script: |
+      $token = [System.Text.Encoding]::UTF8.GetBytes($env:SonarToken + ":")
+      $base64 = [System.Convert]::ToBase64String($token)
+       
+      $basicAuth = [string]::Format("Basic {0}", $base64)
+      $headers = @{ Authorization = $basicAuth }
+       
+      $result = Invoke-RestMethod -Method Get -Uri http://sonarqubetolga.westeurope.cloudapp.azure.com:9000/api/qualitygates/project_status?projectKey=tdsonarqube -Headers $headers
+      $result | ConvertTo-Json | Write-Host
+       
+      if ($result.projectStatus.status -eq "OK") {
+      Write-Host "Quality Gate Succeeded"
+      }else{
+      throw "Quality gate failed"
+      }
 - task: PublishBuildArtifacts@1
   inputs:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)'
