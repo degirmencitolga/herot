@@ -22,7 +22,7 @@ steps:
 
 - task: SonarQubePrepare@5
   inputs:
-    SonarQube: 'sonarqube'
+    SonarQube: 'sonar'
     scannerMode: 'MSBuild'
     projectKey: 'tdsonarqube'
     projectName: 'tdsonarqube'
