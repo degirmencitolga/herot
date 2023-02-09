@@ -21,16 +21,16 @@ steps:
 
 #- task: DotNetCoreCLI@2
   #inputs:
-    command: 'pack'
-    packagesToPack: '**/final.csproj'
-    versioningScheme: 'off'
+    #command: 'pack'
+    #packagesToPack: '**/final.csproj'
+    #versioningScheme: 'off'
 
 #- task: DotNetCoreCLI@2
   #inputs:
-    command: 'push'
-    packagesToPush: '$(Build.ArtifactStagingDirectory)/*.nupkg'
-    nuGetFeedType: 'internal'
-    publishVstsFeed: '247bf6d1-76bd-4c5d-b76b-1b84da6313f1/7be404f9-749f-454d-a364-1fbbb4e32742'
+    #command: 'push'
+    #packagesToPush: '$(Build.ArtifactStagingDirectory)/*.nupkg'
+    #nuGetFeedType: 'internal'
+    #publishVstsFeed: '247bf6d1-76bd-4c5d-b76b-1b84da6313f1/7be404f9-749f-454d-a364-1fbbb4e32742'
 
 - task: SonarQubePrepare@5
   inputs:
