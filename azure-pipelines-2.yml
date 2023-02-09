@@ -19,13 +19,13 @@ steps:
     projects: '**/*.sln'
     arguments: '/p:PackageLocation="$(build.artifactstagingdirectory)\\"'
 
-- task: DotNetCoreCLI@2
+#- task: DotNetCoreCLI@2
   inputs:
     command: 'pack'
     packagesToPack: '**/final.csproj'
     versioningScheme: 'off'
 
-- task: DotNetCoreCLI@2
+#- task: DotNetCoreCLI@2
   inputs:
     command: 'push'
     packagesToPush: '$(Build.ArtifactStagingDirectory)/*.nupkg'
